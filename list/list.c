@@ -1,13 +1,8 @@
 // List
 
-#include <stdio.h>
-#include <stdlib.h>
+#include "list.h"
 
-typedef struct GenericData {
-    int value;
-    struct GenericData *prox;
-}DATA;
-
+// insert is used to add item in a list
 DATA* insert(DATA *data, int value) {
     DATA *newData = (DATA*) malloc(sizeof(DATA));
     newData->value = value;
@@ -26,21 +21,13 @@ DATA* insert(DATA *data, int value) {
     return data;
 }
 
+// display is used to show data on console
 void display(DATA *data) {
-    DATA *iterData = data;
+    printf("Display list items:\n");
 
-    for (iterData; iterData != NULL; iterData = iterData->prox)
+    DATA *iterData = NULL;
+    for (iterData = data; iterData != NULL; iterData = iterData->prox)
     {
         printf("Value: %d\n", iterData->value);
     }
-}
-
-void main() {
-    DATA *dataList = NULL;
-    dataList = insert(dataList, 23);
-    dataList = insert(dataList, 58);
-    dataList = insert(dataList, 1);
-    display(dataList);
-    printf("List works!");
-    return;
 }
