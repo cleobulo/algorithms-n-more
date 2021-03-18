@@ -31,3 +31,38 @@ void display(DATA *data) {
         printf("Value: %d\n", iterData->value);
     }
 }
+
+// search is used to find value in a list
+DATA* search(DATA *data, int value) {
+    DATA *iterData = NULL;
+    for (iterData = data; iterData != NULL; iterData = iterData->prox) {
+        if (iterData->value == value) {
+            printf("Found item: %d\n", iterData->value);
+            return iterData;
+        }
+    }
+
+    printf("Item %d not exists in list\n", value);
+    return NULL;
+}
+
+// deleteItem is used to delete value from a list
+DATA* deleteItem(DATA *data, int value) {
+    DATA *beforeItem = NULL;
+    DATA *iterData = NULL;
+    for (iterData = data; iterData != NULL && iterData->value != value; iterData = iterData->prox) {
+        beforeItem = iterData;
+    }
+
+    if (iterData == NULL)
+        return data;
+
+    if (beforeItem == NULL) {
+        data = iterData->prox;
+    } else {
+        beforeItem->prox = iterData->prox;
+    }
+
+    free(iterData);
+    return data;
+}
