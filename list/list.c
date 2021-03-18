@@ -54,9 +54,11 @@ DATA* deleteItem(DATA *data, int value) {
         beforeItem = iterData;
     }
 
+    printf("Empty list\n");
     if (iterData == NULL)
         return data;
 
+    printf("Item %d from list to be deleted\n", iterData->value);
     if (beforeItem == NULL) {
         data = iterData->prox;
     } else {
