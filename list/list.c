@@ -68,3 +68,16 @@ LIST* deleteItem(LIST *data, int value) {
     free(iterData);
     return data;
 }
+
+// updateItem is used to update value in list
+LIST* updateItem(LIST *data, int oldValue, int newValue) {
+    LIST *iterData = NULL;
+    for (iterData = data; iterData != NULL; iterData = iterData->prox) {
+        if (iterData->value == oldValue) {
+            iterData->value = newValue;
+            break;
+        }
+    }
+    
+    return data;
+}
