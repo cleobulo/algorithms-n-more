@@ -2,9 +2,9 @@
 
 #include "list.h"
 
-// insert is used to add item in a list
-DATA* insert(DATA *data, int value) {
-    DATA *newData = (DATA*) malloc(sizeof(DATA));
+// insertItem is used to add item in a list
+LIST* insertItem(LIST *data, int value) {
+    LIST *newData = (LIST*) malloc(sizeof(LIST));
     newData->value = value;
     newData->prox = NULL;
 
@@ -13,7 +13,7 @@ DATA* insert(DATA *data, int value) {
         return data;
     }
 
-    DATA *iterData = data;
+    LIST *iterData = data;
     while (iterData->prox != NULL)
         iterData = iterData->prox;
 
@@ -21,20 +21,20 @@ DATA* insert(DATA *data, int value) {
     return data;
 }
 
-// display is used to show data on console
-void display(DATA *data) {
+// displayList is used to show data on console
+void displayList(LIST *data) {
     printf("Display list items:\n");
 
-    DATA *iterData = NULL;
+    LIST *iterData = NULL;
     for (iterData = data; iterData != NULL; iterData = iterData->prox)
     {
         printf("Value: %d\n", iterData->value);
     }
 }
 
-// search is used to find value in a list
-DATA* search(DATA *data, int value) {
-    DATA *iterData = NULL;
+// searchItem is used to find value in a list
+LIST* searchItem(LIST *data, int value) {
+    LIST *iterData = NULL;
     for (iterData = data; iterData != NULL; iterData = iterData->prox) {
         if (iterData->value == value) {
             printf("Found item: %d\n", iterData->value);
@@ -47,9 +47,9 @@ DATA* search(DATA *data, int value) {
 }
 
 // deleteItem is used to delete value from a list
-DATA* deleteItem(DATA *data, int value) {
-    DATA *beforeItem = NULL;
-    DATA *iterData = NULL;
+LIST* deleteItem(LIST *data, int value) {
+    LIST *beforeItem = NULL;
+    LIST *iterData = NULL;
     for (iterData = data; iterData != NULL && iterData->value != value; iterData = iterData->prox) {
         beforeItem = iterData;
     }

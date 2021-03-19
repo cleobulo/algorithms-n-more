@@ -3,15 +3,15 @@
 #include "list.h"
 
 int main() {
-    DATA *dataList = NULL;
-    dataList = insert(dataList, 23);
-    dataList = insert(dataList, 58);
-    dataList = insert(dataList, 1);
-    search(dataList, 58);
-    search(dataList, 1);
-    search(dataList, 102);
+    LIST *dataList = NULL;
+    dataList = insertItem(dataList, 23);
+    dataList = insertItem(dataList, 58);
+    dataList = insertItem(dataList, 1);
+    searchItem(dataList, 58);
+    searchItem(dataList, 1);
+    searchItem(dataList, 102);
     dataList = deleteItem(dataList, 58);
-    display(dataList);
+    displayList(dataList);
     printf("--------------------\n");
     printf("List works!");
     return 1;

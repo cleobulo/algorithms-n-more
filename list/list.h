@@ -3,20 +3,20 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// DATA is used to handle some data
-typedef struct GenericData {
+// LIST is used to handle some data
+typedef struct ListItem {
     int value;
-    struct GenericData *prox;
-}DATA;
+    struct ListItem *prox;
+}LIST;
 
-// insert is used to add item in a list
-DATA* insert(DATA *data, int value);
+// insertItem is used to add item in a list
+LIST* insertItem(LIST *data, int value);
 
-// display is used to show data on console
-void display(DATA *data);
+// displayList is used to show data on console
+void displayList(LIST *data);
 
-// search is used to find value in a list
-DATA* search(DATA *data, int value);
+// searchItem is used to find value in a list
+LIST* searchItem(LIST *data, int value);
 
 // deleteItem is used to delete value from a list
-DATA* deleteItem(DATA *data, int value);
+LIST* deleteItem(LIST *data, int value);
