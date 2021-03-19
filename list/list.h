@@ -6,7 +6,7 @@
 // LIST is used to handle some data
 typedef struct ListItem {
     int value;
-    struct ListItem *prox;
+    struct ListItem *next;
 }LIST;
 
 // insertItem is used to add item in list

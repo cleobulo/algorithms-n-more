@@ -6,7 +6,7 @@
 LIST* insertItem(LIST *data, int value) {
     LIST *newData = (LIST*) malloc(sizeof(LIST));
     newData->value = value;
-    newData->prox = NULL;
+    newData->next = NULL;
 
     if (!data) {
         data = newData;
@@ -14,10 +14,10 @@ LIST* insertItem(LIST *data, int value) {
     }
 
     LIST *iterData = data;
-    while (iterData->prox != NULL)
-        iterData = iterData->prox;
+    while (iterData->next != NULL)
+        iterData = iterData->next;
 
-    iterData->prox = newData;
+    iterData->next = newData;
     return data;
 }
 
@@ -26,7 +26,7 @@ void displayList(LIST *data) {
     printf("Display list items:\n");
 
     LIST *iterData = NULL;
-    for (iterData = data; iterData != NULL; iterData = iterData->prox)
+    for (iterData = data; iterData != NULL; iterData = iterData->next)
     {
         printf("Value: %d\n", iterData->value);
     }
@@ -35,7 +35,7 @@ void displayList(LIST *data) {
 // searchItem is used to find value in a list
 LIST* searchItem(LIST *data, int value) {
     LIST *iterData = NULL;
-    for (iterData = data; iterData != NULL; iterData = iterData->prox) {
+    for (iterData = data; iterData != NULL; iterData = iterData->next) {
         if (iterData->value == value) {
             printf("Found item: %d\n", iterData->value);
             return iterData;
@@ -50,7 +50,7 @@ LIST* searchItem(LIST *data, int value) {
 LIST* deleteItem(LIST *data, int value) {
     LIST *beforeItem = NULL;
     LIST *iterData = NULL;
-    for (iterData = data; iterData != NULL && iterData->value != value; iterData = iterData->prox) {
+    for (iterData = data; iterData != NULL && iterData->value != value; iterData = iterData->next) {
         beforeItem = iterData;
     }
 
@@ -60,9 +60,9 @@ LIST* deleteItem(LIST *data, int value) {
 
     printf("Item %d from list to be deleted\n", iterData->value);
     if (beforeItem == NULL) {
-        data = iterData->prox;
+        data = iterData->next;
     } else {
-        beforeItem->prox = iterData->prox;
+        beforeItem->next = iterData->next;
     }
 
     free(iterData);
@@ -72,12 +72,12 @@ LIST* deleteItem(LIST *data, int value) {
 // updateItem is used to update value in list
 LIST* updateItem(LIST *data, int oldValue, int newValue) {
     LIST *iterData = NULL;
-    for (iterData = data; iterData != NULL; iterData = iterData->prox) {
+    for (iterData = data; iterData != NULL; iterData = iterData->next) {
         if (iterData->value == oldValue) {
             iterData->value = newValue;
             break;
         }
     }
-    
+
     return data;
 }
