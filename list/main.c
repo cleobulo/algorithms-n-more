@@ -1,6 +1,6 @@
 // Main program
 
-#include "list.h"
+#include "list/list.h"
 
 int main() {
     LIST *dataList = NULL;
