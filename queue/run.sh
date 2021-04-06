@@ -1,5 +1,5 @@
 # Compile queue
-gcc -Wall main.c -o queue
+gcc -Wall main.c queue.c -o queue
 
 # Execute
 ./queue.exe
