@@ -12,5 +12,8 @@ typedef struct QueueItem {
 // enqueue is used to insert new item on queue
 QUEUE* enqueue(QUEUE *data, int value);
 
+// dequeue is used to remove item from the start of the queue
+QUEUE *dequeue(QUEUE **data);
+
 // displayQueue is used to display all items of the queue
 void displayQueue(QUEUE *data);

@@ -20,6 +20,22 @@ QUEUE* enqueue(QUEUE *data, int value) {
     return data;
 }
 
+// dequeue is used to remove item from the start of the queue
+QUEUE *dequeue(QUEUE **data) {
+    QUEUE *dequeueData = NULL;
+    if ((*data) != NULL) {
+        dequeueData = (QUEUE*) malloc(sizeof(QUEUE));
+        dequeueData->key = (*data)->key;
+        dequeueData->next = NULL;
+    }
+
+    QUEUE *removeData = *data;
+    (*data) = (*data)->next;
+    free(removeData); 
+
+    return dequeueData;
+}
+
 // displayQueue is used to display all items of the queue
 void displayQueue(QUEUE *data) {
     printf("Display queue items:\n");

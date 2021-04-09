@@ -9,6 +9,8 @@ int main() {
     queue = enqueue(queue, 25);
     queue = enqueue(queue, 2);
     displayQueue(queue);
+    dequeue(&queue);
+    displayQueue(queue);
     printf("Queue works!!!");
     return 1;
 }
